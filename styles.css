@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Staatliches');
+
+#main{
+  border-radius:25%;
+}
+
+#top{
+  
+  display:flex;align-items:center;flex-direction:column;justify-content:center;
+  font-family: 'Staatliches', cursive;
+  font-size:25px;
+}
+
+html{
+font-family: 'Noto Sans', sans-serif;
+cursor:default;
+background-color:#9BFFA0;
+color:#2E4C30;
+font-size:15px;
+}
+
+hr{
+  border-color:#9BFFA0;
+}
+
+#add{
+  border-radius:10px;
+  border:none;
+  background-color:#51FF5D;
+  height:35px;
+  font-size:15px;
+  cursor:hand;cursor:pointer;
+  font-family: 'Staatliches', cursive;
+color:#2E4C30;
+}
+
+#sc{font-size:12px;}
