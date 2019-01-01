@@ -1,2 +1,0 @@
-# coolguy
-Discord Bot website
