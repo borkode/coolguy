@@ -22,6 +22,12 @@ function getToChannel(id){
 
 function sendEmbed(author,msg,mc){
     var ctnt = msg.content
+    var file = []
+        msg.attachments.forEach(attachment => {
+            const url = attachment.url;
+            file.push(url)
+          });
+          if(msg.content!=""){
     mc.send({embed: {
         color: 5373789,
         author: {
@@ -36,10 +42,11 @@ function sendEmbed(author,msg,mc){
         }
       }
     });
-    console.log(msg.attachments.array()+"\n\n"+msg.attachments.array().url)
-    if(msg.attachments.array().url!=undefined){
-    mc.send({file:msg.attachments.array().url})
-    }
+}
+if(file.length>0){
+    for(var i = 0;i<file.length;i++){
+        mc.send({files:[file[i]]});
+}}
 }
 
 function sendAlert(alert,channel){
@@ -132,14 +139,14 @@ if(!message.content.startsWith('?help') && !message.content.startsWith("?disconn
     //Disconnection command
         if(message.content=='?disconnect'){
     if(getChannel(message.channel.id)!=-1){
-        sendAlert("The other person has disconnected. If you wish to talk again, use `?talk`.",bot.channels.get(ch1[getChannel(message.channel.id)]))
-        sendAlert("You have disconnected from the other person. If you wish to talk again, use `?talk`.",bot.channels.get(ch2[getChannel(message.channel.id)]))
+        sendAlert("The other person has disconnected. If you wish to talk again, use `?talk`.",bot.channels.get(ch2[getChannel(message.channel.id)]))
+        sendAlert("You have disconnected from the other person. If you wish to talk again, use `?talk`.",bot.channels.get(ch1[getChannel(message.channel.id)]))
         ch1[getChannel(message.channel.id)]='0'
         ch2[getChannel(message.channel.id)]='0'
     }
     if(getToChannel(message.channel.id)!=-1){
-        sendAlert("The other person has disconnected. If you wish to talk again, use `?talk`.",bot.channels.get(ch2[getChannel(message.channel.id)]))
-        sendAlert("You have disconnected from the other person. If you wish to talk again, use `?talk`.",bot.channels.get(ch1[getChannel(message.channel.id)]))
+        sendAlert("The other person has disconnected. If you wish to talk again, use `?talk`.",bot.channels.get(ch1[getToChannel(message.channel.id)]))
+        sendAlert("You have disconnected from the other person. If you wish to talk again, use `?talk`.",bot.channels.get(ch2[getToChannel(message.channel.id)]))
         ch1[getToChannel(message.channel.id)]='0'
         ch2[getToChannel(message.channel.id)]='0'
     }
@@ -185,5 +192,3 @@ if(!message.content.startsWith('?help') && !message.content.startsWith("?disconn
     }
 }
 });
-
-bot.login(token);
