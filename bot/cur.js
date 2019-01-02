@@ -112,7 +112,7 @@ bot.on('message', message => {
     if(message.content=="?unqueue"){
         if(queue==message.channel.id){
             queue=""
-            sendAlert("Okay, your bot was removed from the queue.")
+            sendAlert("Okay, your bot was removed from the queue.",message.channel)
         }else{
             sendAlert("Your server is not on the queue. You can use the command `?talk` to enlist in it.",message.channel)
         }
