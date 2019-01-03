@@ -1,10 +1,12 @@
+// Written top-to-bottom by 'not so cool guy#3258`
+
 const Discord = require('discord.js'); 
 const bot = new Discord.Client();
 var adminch = ['486690504877277194','486690518537994245','486690532601364502']
 var ch1 = []
 var ch2 = []
 var queue = ""
-var origGame = "New features being tested!"
+var origGame = "?help | ?talk"
 var botState;
 console.log("Starting Bot Client...")
 bot.on('ready', () => {
@@ -97,6 +99,7 @@ bot.on("guildCreate", (guild) => {
 });
 
 bot.on('message', message => {
+    try{
     if(!message.author.bot){
     // User commands
     if(message.content=="?talk"){
@@ -191,4 +194,9 @@ if(!message.content.startsWith('?help') && !message.content.startsWith("?disconn
         });
     }
 }
+    }catch(err){
+        bot.channels.get('530190854208487475').send("Error occured in "+message.channel.id+":```"+err+"```")
+    }
 });
+
+token.login(token);
