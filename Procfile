@@ -1,1 +1,1 @@
-worker: node bot/cur.js
+worker: node her.js
