@@ -2,9 +2,9 @@
   "name": "coolguy-bot",
   "description": "epic discord bot",
   "version": "0.0.0",
-  "main": "cur.js",
+  "main": "her.js",
   "scripts": {
-    "start": "node bot/cur.js"
+    "start": "node her.js"
   },
   "dependencies": {
     "discord.js": "11.1.0",
