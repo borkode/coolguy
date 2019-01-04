@@ -199,4 +199,4 @@ if(!message.content.startsWith('?help') && !message.content.startsWith("?disconn
     }
 });
 
-token.login(token);
+client.login(process.env.BOT_TOKEN);
