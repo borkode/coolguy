@@ -1,0 +1,13 @@
+{
+  "name": "coolguy",
+  "description": "epic discord bot",
+  "version": "0.0.0",
+  "main": "cur.js",
+  "scripts": {
+    "start": "node cur.js"
+  },
+  "dependencies": {
+    "discord.js": "11.1.0",
+    "request": "2.81.0"
+  }
+}
